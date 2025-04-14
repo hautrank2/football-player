@@ -1,24 +1,13 @@
 import Image from "next/image";
 import Header from "~/components/layouts/header";
-import { Typography } from "~/components/ui/typography";
 import { TOTAL_ASSIST, TOTAL_GOALS, TOTAL_MATCH } from "~/data/common";
 import { cn } from "~/lib/utils";
 import SectionHeadline from "./components/SectionHeadline";
 import Moment from "./components/Moment";
+import Trophy from "./components/Trophy";
+import Quote from "./components/Quote";
 
 export default function Home() {
-  const stacks = [
-    {
-      title: "Frontend",
-    },
-    {
-      title: "Backend",
-    },
-    {
-      title: "Design",
-    },
-  ];
-
   const tags = [
     {
       title: `10 mùa giải`,
@@ -52,7 +41,7 @@ export default function Home() {
               hâm mộ dành cho KDB.
             </h3>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 flex-wrap">
               {tags.map((tag) => (
                 <div key={tag.title} className="px-4 py-2 border rounded-full">
                   <p className="text-xl">{tag.title}</p>
@@ -60,13 +49,13 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="w-[780px] h-[600px] relative">
+          <div className="hidden lg:block w-[780px] h-[600px] relative">
             <Image
               src={"/svg/number-vector.svg"}
               alt="banner"
               width={180}
               height={100}
-              className="hidden lg:block absolute top-12 left-0"
+              className="absolute top-12 left-0"
             />
             <Image
               src={"/img/banner-fixed.png"}
@@ -81,6 +70,16 @@ export default function Home() {
       <section id="moment" className={cn(sectionClassName)}>
         <SectionHeadline title="Khoảnh khắc đáng nhớ" href="moment" />
         <Moment />
+      </section>
+
+      <section id="trophy" className={cn(sectionClassName)}>
+        <SectionHeadline title="Danh hiệu" href="trophy" />
+        <Trophy />
+      </section>
+
+      <section id="quotes" className={cn(sectionClassName)}>
+        <SectionHeadline title="Mọi người nói gì về Kevin" href="quotes" />
+        <Quote />
       </section>
     </div>
   );

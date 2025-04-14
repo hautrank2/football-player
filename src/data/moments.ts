@@ -7,7 +7,6 @@ export const MOMENT_DATA = [
       "Sau bao năm theo đuổi giấc mơ châu Âu, Kevin cuối cùng đã có khoảnh khắc chạm tay vào chiếc cúp danh giá nhất. Dù phải rời sân sớm vì chấn thương, ánh mắt hạnh phúc và nụ cười nhẹ nhõm của anh khi nâng cao chiếc cúp cho thấy hành trình của một chiến binh đã được đền đáp.",
     image: "/img/kdb-cupc1.jpg",
   },
-
   {
     id: "goal_vs_real",
     title: "Dứt điểm tung lưới Real Madrid từ xa",
