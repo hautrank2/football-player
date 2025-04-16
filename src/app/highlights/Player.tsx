@@ -25,26 +25,29 @@ const Player = ({ videoId, options }: Props) => {
 
   useEffect(() => {
     if (!playerRef.current) return;
-    playerInstance.current = YouTubePlayer(playerRef.current, config);
-    const instance = playerInstance.current;
-    if (instance) {
-      instance.loadVideoById(videoId, start || 0, "large");
-      instance.on("ready", (event: any) => {
-        if (event && event.target) {
-          event.target.seekTo?.(start);
-          event.target.mute();
-          setTimeout(() => {
-            event.target.playVideo();
-          }, 400);
-          intervalRef.current = setInterval(() => {
-            const startEnd = event.target.getCurrentTime() - end;
-            if (startEnd <= 0.1 && startEnd >= 0) {
-              event.target.seekTo?.(start);
-            }
-          }, 100);
-        }
-      });
+    if (!playerInstance.current) {
+      playerInstance.current = YouTubePlayer(playerRef.current, config);
+    } else {
+      return;
     }
+    console.log("device", playerInstance.current);
+    const instance = playerInstance.current;
+    instance.loadVideoById(videoId, start || 0, "large");
+    instance.on("ready", (event: any) => {
+      if (event && event.target) {
+        event.target.seekTo?.(start);
+        event.target.mute();
+        setTimeout(() => {
+          event.target.playVideo();
+        }, 400);
+        intervalRef.current = setInterval(() => {
+          const startEnd = event.target.getCurrentTime() - end;
+          if (startEnd <= 0.1 && startEnd >= 0) {
+            event.target.seekTo?.(start);
+          }
+        }, 100);
+      }
+    });
 
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
