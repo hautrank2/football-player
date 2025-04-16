@@ -37,9 +37,9 @@ const Player = ({ videoId, options }: Props) => {
       if (event && event.target) {
         event.target.seekTo?.(start);
         event.target.mute();
-        setTimeout(() => {
-          event.target.playVideo();
-        }, 400);
+        // setTimeout(() => {
+        //   event.target.playVideo();
+        // }, 400);
         intervalRef.current = setInterval(() => {
           const startEnd = event.target.getCurrentTime() - end;
           if (startEnd <= 0.1 && startEnd >= 0) {
