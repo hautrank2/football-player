@@ -23,7 +23,7 @@ export default function Home() {
     },
   ];
 
-  const sectionClassName = "max-w-[80rem] mx-auto min-h-[86vh] p-16";
+  const sectionClassName = "max-w-[80rem] mx-auto min-h-[86vh] p-8";
   return (
     <div className="py-20">
       <Header />

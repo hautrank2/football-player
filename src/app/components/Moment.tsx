@@ -12,7 +12,7 @@ import { MOMENT_DATA } from "~/data/moments";
 function Moment({}) {
   const data = MOMENT_DATA;
   return (
-    <Carousel className="mx-auto max-w-lg lg:max-w-4xl">
+    <Carousel className="mx-auto max-w-sm md:max-w-xl lg:max-w-4xl">
       <CarouselContent>
         {data.map((item) => (
           <CarouselItem key={item.id}>
@@ -34,8 +34,8 @@ function Moment({}) {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious className="hidden md:flex" />
+      <CarouselNext className="hidden md:flex" />
     </Carousel>
   );
 }
