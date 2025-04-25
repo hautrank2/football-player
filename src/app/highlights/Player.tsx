@@ -30,7 +30,6 @@ const Player = ({ videoId, options }: Props) => {
     } else {
       return;
     }
-    console.log("device", playerInstance.current);
     const instance = playerInstance.current;
     instance.loadVideoById(videoId, start || 0, "large");
     instance.on("ready", (event: any) => {

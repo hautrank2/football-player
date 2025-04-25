@@ -117,37 +117,47 @@ function Highlights({}) {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <Typography variant="h1" className="mb-8 bg-primary w-fit text-background p-2">
+    <div className="max-w-4xl mx-auto px-8">
+      <Typography
+        variant="h1"
+        className="mb-8 bg-primary w-fit text-background p-2"
+      >
         Assists
       </Typography>
       <div className="grid grid-cols-1 gap-4">
         {assists.map((item, index) => {
           return (
-            <div key={item.title + index} className="card">
-              <Typography variant="h2" className="mb-2">
-                {item.titleVi}
-              </Typography>
-              <Typography variant="p" className="mb-2">
-                {item.season} | vs {item.competitor}
-              </Typography>
-              <Player
-                videoId={item.videoId}
-                options={{
-                  width: "100%",
-                  height: 600,
-                  playerVars: {
-                    cc_lang_pref: "en",
-                    start: item.start,
-                    end: item.end,
-                    controls: 0,
-                    disablekb: 1,
-                    modestbranding: 1,
-                    loop: 1,
-                    autoplay: 0,
-                  },
-                }}
-              />
+            <div
+              key={item.title + index}
+              className="card flex flex-col gap-2 h-88 md:h-140 lg:h-[80vh]"
+            >
+              <div>
+                <Typography variant="h2" className="mb-2">
+                  {item.titleVi}
+                </Typography>
+                <Typography variant="p" className="mb-2">
+                  {item.season} | vs {item.competitor}
+                </Typography>
+              </div>
+              <div className="flex-1">
+                <Player
+                  videoId={item.videoId}
+                  options={{
+                    width: "100%",
+                    height: "100%",
+                    playerVars: {
+                      cc_lang_pref: "en",
+                      start: item.start,
+                      end: item.end,
+                      controls: 0,
+                      disablekb: 1,
+                      modestbranding: 1,
+                      loop: 1,
+                      autoplay: 0,
+                    },
+                  }}
+                />
+              </div>
             </div>
           );
         })}
