@@ -19,6 +19,8 @@ function Trophy({}) {
                       fill
                       alt="icon"
                       className="object-contain"
+                      priority={false}
+                      loading="lazy"
                     />
                   </div>
                 </div>

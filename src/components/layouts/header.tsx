@@ -3,7 +3,7 @@ import { Typography } from "../ui/typography";
 import { Avatar, AvatarImage } from "../ui/avatar";
 import Link from "next/link";
 
-async function Header() {
+function Header() {
   const navs = [
     {
       title: "Home",
@@ -22,7 +22,7 @@ async function Header() {
     <header className="flex justify-between items-center w-full fixed top-0 h-16 px-16 border-b z-20 bg-background/90">
       <div className="header-branch flex gap-2">
         <Avatar>
-          <AvatarImage src="/img/kdb-avt-anime.png" />
+          <AvatarImage src="/img/kdb-avt-anime.png" loading="lazy" />
         </Avatar>
         <Typography variant={"h3"} className="uppercase">
           Kevin De Bruyne

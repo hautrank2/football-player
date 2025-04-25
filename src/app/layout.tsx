@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi" className={sans.className}>
-      <body className={`antialiased dark`}>{children}</body>
+      <body className={`antialiased dark`}>{children} </body>
     </html>
   );
 }

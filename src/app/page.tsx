@@ -6,6 +6,7 @@ import SectionHeadline from "./components/SectionHeadline";
 import Moment from "./components/Moment";
 import Trophy from "./components/Trophy";
 import Quote from "./components/Quote";
+import Script from "next/script";
 
 export default function Home() {
   const tags = [
@@ -23,7 +24,7 @@ export default function Home() {
     },
   ];
 
-  const sectionClassName = "max-w-[80rem] mx-auto min-h-[86vh] p-16";
+  const sectionClassName = "max-w-[80rem] mx-auto min-h-[100vh] p-16 opacity-0";
   return (
     <div className="py-20">
       <Header />
@@ -81,6 +82,8 @@ export default function Home() {
         <SectionHeadline title="Mọi người nói gì về Kevin" href="quotes" />
         <Quote />
       </section>
+
+      <Script id="homeScript" strategy="afterInteractive" src="/js/home.js" />
     </div>
   );
 }
