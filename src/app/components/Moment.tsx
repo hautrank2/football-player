@@ -28,6 +28,8 @@ function Moment({}) {
                   alt="img-c1"
                   fill
                   className="rounded object-contain"
+                  priority={false}
+                  loading="lazy"
                 />
               </div>
             </div>
