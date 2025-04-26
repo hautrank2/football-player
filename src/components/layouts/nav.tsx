@@ -12,8 +12,10 @@ import {
   SheetDescription,
 } from "../ui/sheet";
 import { cn } from "~/lib/utils";
+import { usePathname } from "next/navigation";
 
 function Nav({}) {
+  const pathname = usePathname();
   const navs = [
     {
       title: "Home",
@@ -27,6 +29,10 @@ function Nav({}) {
       title: "Highlights",
       href: "/highlights",
     },
+    {
+      title: "Museum",
+      href: "/museum",
+    },
   ];
 
   const classLink =
@@ -34,12 +40,16 @@ function Nav({}) {
 
   return (
     <div className="header-extra">
-      <div className="items-center hidden md:flex">
+      <div className="items-center hidden md:flex gap-2">
         {navs.map((nav) => (
           <Link
             key={nav.href}
             href={nav.href}
-            className={cn("px-4 py-2", classLink)}
+            className={cn(
+              "px-4 py-2",
+              classLink,
+              pathname === nav.href && "bg-primary text-background"
+            )}
           >
             <h4 className="text-2xl">{nav.title}</h4>
           </Link>
@@ -60,7 +70,11 @@ function Nav({}) {
               <Link
                 key={nav.href}
                 href={nav.href}
-                className={cn("px-8 py-2", classLink)}
+                className={cn(
+                  "px-8 py-2",
+                  classLink,
+                  pathname === nav.href && "bg-primary text-background"
+                )}
               >
                 <h4 className="text-2xl">{nav.title}</h4>
               </Link>

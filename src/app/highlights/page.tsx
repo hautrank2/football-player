@@ -1,8 +1,13 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Player from "./Player";
 import { Typography } from "~/components/ui/typography";
+import { ToggleGroup, ToggleGroupItem } from "~/components/ui/toggle-group";
 
 function Highlights({}) {
+  const [value, setValue] = useState("assists");
+
   const assists = [
     {
       title: "Sane",
@@ -118,12 +123,28 @@ function Highlights({}) {
 
   return (
     <div className="max-w-4xl mx-auto px-8">
-      <Typography
-        variant="h1"
-        className="mb-8 bg-primary w-fit text-background p-2"
+      <ToggleGroup
+        type="single"
+        className="mb-8 gap-2"
+        value={value}
+        onValueChange={setValue}
+        variant="default"
       >
-        Assists
-      </Typography>
+        <ToggleGroupItem
+          value="assists"
+          aria-label="Assists"
+          className="text-2xl px-4 h-16 data-[state=on]:bg-primary data-[state=on]:text-background"
+        >
+          Assists
+        </ToggleGroupItem>
+        <ToggleGroupItem
+          value="goals"
+          aria-label="Goals"
+          className="text-2xl px-4 h-16 data-[state=on]:bg-primary data-[state=on]:text-background"
+        >
+          Goals
+        </ToggleGroupItem>
+      </ToggleGroup>
       <div className="grid grid-cols-1 gap-4">
         {assists.map((item, index) => {
           return (
